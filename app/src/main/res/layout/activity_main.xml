@@ -31,7 +31,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac lacus scelerisque. Morbi hendrerit dui nec nunc fermentum, eget placerat lorem luctus. Nulla euismod malesuada lectus sed pellentesque. Aenean eget vehicula est. Quisque pretium leo."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +51,9 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/decisionText"
+                android:id="@+id/overlayText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +73,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/decisionText"
+                app:layout_constraintTop_toBottomOf="@+id/overlayText"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@android:drawable/sym_def_app_icon"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -91,11 +89,10 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="125dp"
                 android:ems="10"
-                android:text="TETSTAIsgfduasfh"
                 app:layout_constraintBottom_toBottomOf="@+id/cardImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/decisionText" />
+                app:layout_constraintTop_toBottomOf="@+id/overlayText" />
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
