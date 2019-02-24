@@ -3,13 +3,14 @@ package com.coffman.shams.cbushack;
 import android.graphics.drawable.Drawable;
 
 public class Situation {
-    private String description, overlayText;
+    private String description, overlayText, date;
     private Drawable image;
     private Decision left, right;
 
-    public Situation(String description, String overlayText, Drawable image, Decision left, Decision right) {
+    public Situation(String description, String overlayText, String date, Drawable image, Decision left, Decision right) {
         this.description = description;
         this.overlayText = overlayText;
+        this.date = date;
         this.image = image;
         this.left = left;
         this.right = right;
@@ -23,6 +24,10 @@ public class Situation {
         return overlayText;
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public Drawable getImage() {
         return image;
     }
@@ -34,4 +39,5 @@ public class Situation {
     public Decision getRight() {
         return right;
     }
+
 }

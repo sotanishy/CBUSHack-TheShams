@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout card;
     private ImageView cardImage;
     private TextView cardText, overlayText;
+    private TextView dateText;
     private Situation currentSituation;
 
     private LinkedList<Situation> situationQueue;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         new Situation(
                                 "You have been elected president of the Columbus City Council. The citizens of this great city have trusted you to make the tough decisions, make them proud. Are you ready for your first day?",
                                 "",
+                                "Jan 2019",
                                 getResources().getDrawable(R.drawable.man),
                                 new Decision("No"),
                                 new Decision("Yes")),
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         new Situation(
                                 "The people want to open a new school to stop the overcrowding. Do you agree?",
                                 "",
+                                "Apr 2019",
                                 getResources().getDrawable(R.drawable.girl),
                                 new Decision("No, they're fine"),
                                 new Decision("Yes"))
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         );
 
         topText = findViewById(R.id.topText);
+
+        dateText = findViewById(R.id.date);
 
         overlayText = findViewById(R.id.overlayText);
         overlayText.setAlpha(0);
@@ -135,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
             return new Situation(
                     "You have reached the end of the game. Congrats!!! There is more to come soon...",
                     "",
+                    "Jan 2100",
                     getResources().getDrawable(R.drawable.boy),
                     new Decision("Ok"),
                     new Decision("Ok"));
@@ -146,5 +152,18 @@ public class MainActivity extends AppCompatActivity {
         topText.setText(situation.getDescription());
         overlayText.setText(situation.getOverlayText());
         cardImage.setImageDrawable(situation.getImage());
+        dateText.setText(situation.getDate());
     }
+
+    /**
+     * Change the value by the specified amount
+     * @param id the resource id of the value you want to change
+     * @param value how much you want to change the value by
+     */
+    private void changeValue(int id, double value) {
+        TextView tv = findViewById(id);
+        double currentValue = Integer.parseInt(tv.getText().toString());
+        tv.setText("" + (currentValue + value));
+    }
+
 }
