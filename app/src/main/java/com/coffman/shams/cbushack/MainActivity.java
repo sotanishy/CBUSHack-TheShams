@@ -14,10 +14,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-
 public class MainActivity extends AppCompatActivity {
 
     //TODO credit images : Icons made by Freepik from www.flaticon.com
@@ -27,35 +23,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView cardImage;
     private TextView cardText, overlayText;
     private TextView dateText;
-    private Situation currentSituation;
+    private TextView fundsValue, happinessValue, environmentValue, energyValue;
 
-    private LinkedList<Situation> situationQueue;
+    private Game game;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        situationQueue = new LinkedList<>(
-                Arrays.asList(
-                        new Situation(
-                                "You have been elected president of the Columbus City Council. The citizens of this great city have trusted you to make the tough decisions, make them proud. Are you ready for your first day?",
-                                "",
-                                "Jan 2019",
-                                getResources().getDrawable(R.drawable.man),
-                                new Decision("No"),
-                                new Decision("Yes")),
-
-                        new Situation(
-                                "The people want to open a new school to stop the overcrowding. Do you agree?",
-                                "",
-                                "Apr 2019",
-                                getResources().getDrawable(R.drawable.girl),
-                                new Decision("No, they're fine"),
-                                new Decision("Yes"))
-                )
-        );
 
         topText = findViewById(R.id.topText);
 
@@ -83,15 +59,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case MotionEvent.ACTION_MOVE:
-                        view.setX((event.getRawX() * 2) - view.getWidth());
-
+                        view.setX((event.getRawX() * 2) + dX * 2);
 
                         if (view.getX() < view.getPaddingLeft()) {
-                            overlayText.setText(currentSituation.getLeft().getDescription());
+                            overlayText.setText(game.getCurrentSituation().getLeft().getDescription());
                             overlayText.setAlpha(-view.getX() / view.getWidth() - 0.2f);
                             overlayText.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
                         } else {
-                            overlayText.setText(currentSituation.getRight().getDescription());
+                            overlayText.setText(game.getCurrentSituation().getRight().getDescription());
                             overlayText.setAlpha(view.getX() / view.getWidth() - 0.2f);
                             overlayText.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                         }
@@ -101,11 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
                     case MotionEvent.ACTION_UP:
                         if (view.getX() < view.getWidth() * -0.7) {
-                            Log.e("D", "Left");
-                            setSituation(getNextSituation());
+                            Log.e("D", game.getCurrentSituation().getDescription() + " -> " + game.getCurrentSituation().getLeft().getDescription());
+                            game.getCurrentSituation().getLeft().onChoose(game);
+                            nextSituation();
                         } else if (view.getX() > view.getWidth() * 0.7) {
-                            Log.e("D", "Right");
-                            setSituation(getNextSituation());
+                            Log.e("D", game.getCurrentSituation().getDescription() + " -> " + game.getCurrentSituation().getRight().getDescription());
+                            game.getCurrentSituation().getRight().onChoose(game);
+                            nextSituation();
                         }
 
                         ObjectAnimator animation = ObjectAnimator.ofFloat(view, "translationX", view.getPaddingLeft());
@@ -130,34 +107,37 @@ public class MainActivity extends AppCompatActivity {
 
         cardText = findViewById(R.id.cardText);
 
-        setSituation(getNextSituation());
+        fundsValue = findViewById(R.id.fundsValue);
+        happinessValue = findViewById(R.id.happinessValue);
+        environmentValue = findViewById(R.id.environmentValue);
+        energyValue = findViewById(R.id.energyValue);
+
+        game = new Game();
+
+        nextSituation();
     }
 
-    private Situation getNextSituation() {
-        try {
-            return situationQueue.pop();
-        } catch (NoSuchElementException e) {
-            return new Situation(
-                    "You have reached the end of the game. Congrats!!! There is more to come soon...",
-                    "",
-                    "Jan 2100",
-                    getResources().getDrawable(R.drawable.boy),
-                    new Decision("Ok"),
-                    new Decision("Ok"));
-        }
-    }
 
-    private void setSituation(Situation situation) {
-        currentSituation = situation;
+    private void nextSituation() {
+        Situation situation = game.getNextSituation();
+
+        // Update Card
         topText.setText(situation.getDescription());
         overlayText.setText(situation.getOverlayText());
-        cardImage.setImageDrawable(situation.getImage());
-        dateText.setText(situation.getDate());
+        cardImage.setImageDrawable(getResources().getDrawable(situation.getDrawableId()));
+
+        // Update other values
+        fundsValue.setText("" + game.getFunds());
+        happinessValue.setText("" + game.getHappiness());
+        environmentValue.setText("" + game.getEnvironment());
+        energyValue.setText("" + game.getEnergy());
+        dateText.setText(game.getTime() + " Months");
     }
 
     /**
      * Change the value by the specified amount
-     * @param id the resource id of the value you want to change
+     *
+     * @param id    the resource id of the value you want to change
      * @param value how much you want to change the value by
      */
     private void changeValue(int id, double value) {
@@ -165,5 +145,4 @@ public class MainActivity extends AppCompatActivity {
         double currentValue = Integer.parseInt(tv.getText().toString());
         tv.setText("" + (currentValue + value));
     }
-
 }

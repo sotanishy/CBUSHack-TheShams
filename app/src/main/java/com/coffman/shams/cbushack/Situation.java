@@ -1,17 +1,14 @@
 package com.coffman.shams.cbushack;
 
-import android.graphics.drawable.Drawable;
-
 public class Situation {
-    private String description, overlayText, date;
-    private Drawable image;
+    private String description, overlayText;
+    private int drawableId;
     private Decision left, right;
 
-    public Situation(String description, String overlayText, String date, Drawable image, Decision left, Decision right) {
+    public Situation(String description, String overlayText, int drawableId, Decision left, Decision right) {
         this.description = description;
         this.overlayText = overlayText;
-        this.date = date;
-        this.image = image;
+        this.drawableId = drawableId;
         this.left = left;
         this.right = right;
     }
@@ -24,12 +21,8 @@ public class Situation {
         return overlayText;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public Drawable getImage() {
-        return image;
+    public int getDrawableId() {
+        return drawableId;
     }
 
     public Decision getLeft() {
@@ -39,5 +32,4 @@ public class Situation {
     public Decision getRight() {
         return right;
     }
-
 }

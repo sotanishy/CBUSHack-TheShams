@@ -2,7 +2,6 @@ package com.coffman.shams.cbushack;
 
 public class Decision {
     private String description;
-    //TODO add effects
 
     public Decision(String description) {
         this.description = description;
@@ -10,5 +9,9 @@ public class Decision {
 
     public String getDescription() {
         return description;
+    }
+
+    public void onChoose(Game game) {
+        game.changeTime(3);
     }
 }

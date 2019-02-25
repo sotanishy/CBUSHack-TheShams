@@ -9,7 +9,9 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:id="@+id/funds"
@@ -22,14 +24,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Funds"/>
+                android:text="Funds" />
 
             <TextView
                 android:id="@+id/fundsValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0"/>
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,14 +45,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Citizen Happiness"/>
+                android:text="Happiness" />
 
             <TextView
                 android:id="@+id/happinessValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0"/>
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,23 +61,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintLeft_toRightOf="@id/happiness"
-            app:layout_constraintRight_toLeftOf="@id/demands">
+            app:layout_constraintRight_toLeftOf="@id/energy">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Environment"/>
+                android:text="Environment" />
 
             <TextView
                 android:id="@+id/environmentValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0"/>
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/demands"
+            android:id="@+id/energy"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -85,16 +87,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Energy Demands"/>
+                android:text="Energy" />
 
             <TextView
-                android:id="@+id/demandsValue"
+                android:id="@+id/energyValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0"/>
+                android:text="0" />
         </LinearLayout>
-        
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
