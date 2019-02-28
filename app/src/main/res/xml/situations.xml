@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <situations>
     <situation>
-        <header>Through hard work, determination, and the will of the people you have been elected to the position of city council president. Are you ready to begin your first day?</header>
+        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Are you ready to begin your first day?</header>
         <decision>
             <description>Yes</description>
         </decision>
