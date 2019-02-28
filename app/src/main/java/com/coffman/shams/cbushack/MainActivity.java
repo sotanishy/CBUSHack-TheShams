@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
         game = new Game();
 
         nextSituation();
+
+        Log.e("Main", Situation.parse(getResources().getXml(R.xml.situations), getResources()).toString());
     }
 
 

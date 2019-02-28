@@ -14,4 +14,11 @@ public class Decision {
     public void onChoose(Game game) {
         game.changeTime(3);
     }
+
+    @Override
+    public String toString() {
+        return "Decision{" +
+                "description='" + description + '\'' +
+                '}';
+    }
 }
