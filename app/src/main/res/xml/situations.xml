@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <situations>
-    <situation>
-        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Are you ready to begin your first day?</header>
+
+    <situation xml:id="Start Game">
+        <header>Through hard work, determination, and the will of the people you have been elected to the position of city council president. Are you ready to begin your first day?</header>
+        <drawable>boy</drawable>
         <decision>
             <description>Yes</description>
         </decision>
@@ -9,9 +11,9 @@
             <description>Not yet</description>
         </decision>
     </situation>
-    <situation>
+    <situation xml:id="New School">
         <header>The citizens want to open a new school to ease the overcrowding, do you agree?</header>
-        <drawable>@drawable/man</drawable>
+        <drawable>man</drawable>
         <decision>
             <description>Yes</description>
         </decision>

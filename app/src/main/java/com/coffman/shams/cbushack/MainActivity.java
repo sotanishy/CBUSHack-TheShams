@@ -112,11 +112,9 @@ public class MainActivity extends AppCompatActivity {
         environmentValue = findViewById(R.id.environmentValue);
         energyValue = findViewById(R.id.energyValue);
 
-        game = new Game();
+        game = new Game(getResources());
 
         nextSituation();
-
-        Log.e("Main", Situation.parse(getResources().getXml(R.xml.situations), getResources()).toString());
     }
 
 

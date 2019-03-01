@@ -1,6 +1,7 @@
 package com.coffman.shams.cbushack;
 
-import java.util.Arrays;
+import android.content.res.Resources;
+
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
@@ -9,39 +10,10 @@ public class Game {
     private Situation currentSituation;
     private LinkedList<Situation> situationQueue;
 
-    public Game() {
+    public Game(Resources resources) {
         funds = happiness = environment = energy = 50;
 
-        situationQueue = new LinkedList<>(
-                Arrays.asList(
-                        new Situation(
-                                "You have been elected president of the Columbus City Council. The citizens of this great city have trusted you to make the tough decisions, make them proud. Are you ready for your first day?",
-                                "",
-                                R.drawable.man,
-                                new Decision("No"),
-                                new Decision("Yes")),
-
-                        new Situation(
-                                "The people want to open a new school to stop the overcrowding. Do you agree?",
-                                "",
-                                R.drawable.girl,
-                                new Decision("No, they're fine") {
-                                    @Override
-                                    public void onChoose(Game game) {
-                                        super.onChoose(game);
-                                        game.changeHappiness(-5);
-                                    }
-                                },
-                                new Decision("Yes") {
-                                    @Override
-                                    public void onChoose(Game game) {
-                                        super.onChoose(game);
-                                        game.changeHappiness(10);
-                                        game.changeFunds(-10);
-                                    }
-                                })
-                )
-        );
+        situationQueue = Situation.parse(resources.getXml(R.xml.situations), resources);
     }
 
     public Situation getNextSituation() {

@@ -7,7 +7,6 @@ import android.util.Log;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class Situation {
     private String description, overlayText;
@@ -46,7 +45,7 @@ public class Situation {
         return right;
     }
 
-    public static List<Situation> parse(XmlResourceParser parser, Resources resources) {
+    public static LinkedList<Situation> parse(XmlResourceParser parser, Resources resources) {
         try {
             int eventType = parser.getEventType();
             LinkedList<Situation> situations = new LinkedList<>();
@@ -72,8 +71,7 @@ public class Situation {
                             } else if ("body".equals(elementName)) {
                                 currentSituation.overlayText = parser.nextText();
                             } else if ("drawable".equals(elementName)) {
-                                String res = parser.nextText();
-                                currentSituation.drawableId = R.drawable.boy;//resources.getIdentifier(res.substring(res.indexOf("/") + 1), res.substring(res.indexOf(":") + 1, res.indexOf("/")), res.substring(0, res.indexOf(":")));
+                                currentSituation.drawableId = resources.getIdentifier(parser.nextText(), "drawable", "com.coffman.shams.cbushack");
                             } else if ("decision".equals(elementName)) {
                                 parser.next();
                                 currentDecision = new Decision(parser.nextText());
