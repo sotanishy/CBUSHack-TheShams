@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
@@ -24,6 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Funds" />
 
             <TextView
@@ -32,6 +35,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0" />
+
+            <ProgressBar
+                android:id="@+id/fundsBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@android:style/Widget.ProgressBar.Horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -45,6 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Happiness" />
 
             <TextView
@@ -53,6 +64,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0" />
+
+            <ProgressBar
+                android:id="@+id/happinessBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@android:style/Widget.ProgressBar.Horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -66,6 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Environment" />
 
             <TextView
@@ -74,6 +93,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0" />
+
+            <ProgressBar
+                android:id="@+id/environmentBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@android:style/Widget.ProgressBar.Horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -87,6 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Energy" />
 
             <TextView
@@ -95,6 +122,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0" />
+
+            <ProgressBar
+                android:id="@+id/energyBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@android:style/Widget.ProgressBar.Horizontal"/>
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

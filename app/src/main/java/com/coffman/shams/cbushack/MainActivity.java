@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView cardText, overlayText;
     private TextView dateText;
     private TextView fundsValue, happinessValue, environmentValue, energyValue;
+    private ProgressBar fundsBar, happinessBar, environmentBar, energyBar;
 
     private Game game;
 
@@ -112,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
         environmentValue = findViewById(R.id.environmentValue);
         energyValue = findViewById(R.id.energyValue);
 
+        fundsBar = findViewById(R.id.fundsBar);
+        happinessBar = findViewById(R.id.happinessBar);
+        environmentBar = findViewById(R.id.environmentBar);
+        energyBar = findViewById(R.id.energyBar);
+
         game = new Game(getResources());
 
         nextSituation();
@@ -131,18 +138,12 @@ public class MainActivity extends AppCompatActivity {
         happinessValue.setText("" + game.getHappiness());
         environmentValue.setText("" + game.getEnvironment());
         energyValue.setText("" + game.getEnergy());
-        dateText.setText(game.getTime() + " Months");
-    }
 
-    /**
-     * Change the value by the specified amount
-     *
-     * @param id    the resource id of the value you want to change
-     * @param value how much you want to change the value by
-     */
-    private void changeValue(int id, double value) {
-        TextView tv = findViewById(id);
-        double currentValue = Integer.parseInt(tv.getText().toString());
-        tv.setText("" + (currentValue + value));
+        fundsBar.setProgress(game.getFunds());
+        happinessBar.setProgress(game.getFunds());
+        environmentBar.setProgress(game.getFunds());
+        energyBar.setProgress(game.getFunds());
+
+        dateText.setText(game.getTime() + " Months");
     }
 }
