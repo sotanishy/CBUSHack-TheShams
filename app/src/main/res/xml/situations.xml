@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <situations>
-
-    <situation xml:id="Start Game">
-        <header>Through hard work, determination, and the will of the people you have been elected to the position of city council president. Are you ready to begin your first day?</header>
-        <drawable>boy</drawable>
+    <situation>
+        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Are you ready to begin your first day?</header>
         <decision>
             <description>Yes</description>
         </decision>
@@ -11,14 +9,80 @@
             <description>Not yet</description>
         </decision>
     </situation>
-    <situation xml:id="New School">
-        <header>The citizens want to open a new school to ease the overcrowding, do you agree?</header>
-        <drawable>man</drawable>
+    <situation>
+        <header>The citizens want to open a new school to ease the overcrowding</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
         <decision>
             <description>Yes</description>
+            <funds>-10,-5</funds>
+            <happiness>10,30</happiness>
+            <environment>-10,-5</environment>
+            <energy>-5,5</energy>
         </decision>
         <decision>
-            <description>No, they're fine</description>
+            <description>No</description>
+            <funds>0,10</funds>
+            <happiness>-10,-5</happiness>
+            <environment>0,0</environment>
+            <energy>0,0</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>A group of lobbyists strongly encourage the implementation of solar powers</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-15,-10</funds>
+            <happiness>-5,10</happiness>
+            <environment>5,10</environment>
+            <energy>5,10</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,15</funds>
+            <happiness>-5,5</happiness>
+            <environment>-5,-10</environment>
+            <energy>-5,-10</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>More vacations for government workers</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-10,-5</funds>
+            <happiness>-10,5</happiness>
+            <environment>-10,0</environment>
+            <energy>0,5</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,10</funds>
+            <happiness>-10,5</happiness>
+            <environment>0,10</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Repeal the Clean Air Act</header>
+        <drawable>@drawable/man</drawable>
+        <pos>p</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>5,15</funds>
+            <happiness>-15,0</happiness>
+            <environment>-70,-20</environment>
+            <energy>5,15</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>-5,5</funds>
+            <happiness>5,10</happiness>
+            <environment>20,30</environment>
+            <energy>-5,5</energy>
         </decision>
     </situation>
 </situations>
