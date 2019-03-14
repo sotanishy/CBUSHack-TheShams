@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <situations>
     <situation>
-        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Are you ready to begin your first day?</header>
+        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Elections are every four years, with a term limit of eight for each position. Are you ready to begin your first day?</header>
         <decision>
             <description>Yes</description>
         </decision>
@@ -85,4 +85,65 @@
             <energy>-5,5</energy>
         </decision>
     </situation>
+    <situation>
+        <header>Incentivize the construction of wind turbines</header>
+        <drawable>@drawable/man</drawable>
+        <pos>g</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-10,-5</funds>
+            <happiness>-5,5</happiness>
+            <environment>5,10</environment>
+            <energy>0,20</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,10</funds>
+            <happiness>-10,10</happiness>
+            <environment>-5,-10</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+
+    <situation>
+        <header>Install free charging stations for electric cars</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-20,-5</funds>
+            <happiness>-5,5</happiness>
+            <environment>-5,15</environment>
+            <energy>-10,0</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,10</funds>
+            <happiness>-10,10</happiness>
+            <environment>-15,5</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Increase wages for sanitation engineers</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-10,-5</funds>
+            <happiness>0,15</happiness>
+            <environment>5,10</environment>
+            <energy>-10,10</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,15</funds>
+            <happiness>-10,5</happiness>
+            <environment>-5,-10</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+
+
+
 </situations>
