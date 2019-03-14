@@ -126,24 +126,41 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void nextSituation() {
-        Situation situation = game.getNextSituation();
 
-        // Update Card
-        topText.setText(situation.getDescription());
-        overlayText.setText(situation.getOverlayText());
-        cardImage.setImageDrawable(getResources().getDrawable(situation.getDrawableId()));
+        //election fudgery
+        if(game.getTime()%48==0) {
+            game.changeTime(-1);
+            if(game.getHappiness()<20)
+                topText.setText("Unfortunately, you have been voted out of office due to your unpopularity. Game over.");
+            else
+            {
+                topText.setText("Congratulations! You've been elected ");
+                overlayText.setText(situation.getOverlayText());
+                cardImage.setImageDrawable(getResources().getDrawable(situation.getDrawableId()));
+            }
+        }
+        else {
+            Situation situation = game.getNextSituation();
+            if(game.getTime()%3!=0)
+                game.changeTime(1);
 
-        // Update other values
-        fundsValue.setText("" + game.getFunds());
-        happinessValue.setText("" + game.getHappiness());
-        environmentValue.setText("" + game.getEnvironment());
-        energyValue.setText("" + game.getEnergy());
+            // Update Card
+            topText.setText(situation.getDescription());
+            overlayText.setText(situation.getOverlayText());
+            cardImage.setImageDrawable(getResources().getDrawable(situation.getDrawableId()));
 
-        fundsBar.setProgress(game.getFunds());
-        happinessBar.setProgress(game.getFunds());
-        environmentBar.setProgress(game.getFunds());
-        energyBar.setProgress(game.getFunds());
+            // Update other values
+            fundsValue.setText("" + game.getFunds());
+            happinessValue.setText("" + game.getHappiness());
+            environmentValue.setText("" + game.getEnvironment());
+            energyValue.setText("" + game.getEnergy());
 
-        dateText.setText(game.getTime() + " Months");
+            fundsBar.setProgress(game.getFunds());
+            happinessBar.setProgress(game.getFunds());
+            environmentBar.setProgress(game.getFunds());
+            energyBar.setProgress(game.getFunds());
+
+            dateText.setText(game.getTime() + " Months");
+        }
     }
 }
