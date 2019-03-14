@@ -140,9 +140,9 @@ public class MainActivity extends AppCompatActivity {
         energyValue.setText("" + game.getEnergy());
 
         fundsBar.setProgress(game.getFunds());
-        happinessBar.setProgress(game.getFunds());
-        environmentBar.setProgress(game.getFunds());
-        energyBar.setProgress(game.getFunds());
+        happinessBar.setProgress(game.getHappiness());
+        environmentBar.setProgress(game.getEnvironment());
+        energyBar.setProgress(game.getEnergy());
 
         dateText.setText(game.getTime() + " Months");
     }
