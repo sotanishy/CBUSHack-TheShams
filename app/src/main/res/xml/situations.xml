@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <situations>
     <situation>
-        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Elections are every four years, with a term limit of eight for each position. Are you ready to begin your first day?</header>
+        <header>Through hard work, determination, and the will of the people you have been elected to the position of mayor. Are you ready to begin your first day?</header>
+        <drawable>@drawable/man</drawable>
         <decision>
             <description>Yes</description>
         </decision>

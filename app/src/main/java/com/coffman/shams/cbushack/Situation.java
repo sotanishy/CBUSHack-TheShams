@@ -50,7 +50,7 @@ public class Situation {
             int eventType = parser.getEventType();
             LinkedList<Situation> situations = new LinkedList<>();
             Situation currentSituation = null;
-            Decision currentDecision;
+            Decision currentDecision = null;
 
             while (eventType != parser.END_DOCUMENT) {
                 String elementName;
@@ -80,6 +80,25 @@ public class Situation {
                                     currentSituation.left = currentDecision;
                                 } else {
                                     currentSituation.right = currentDecision;
+                                }
+                            } else if (currentDecision != null) {
+                                if ("funds".equals(elementName)) {
+                                    String[] valuesStr = parser.nextText().split(",");
+                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
+                                    currentDecision.funds = values;
+                                    Log.d("decision", currentDecision.getDescription() + " " + currentDecision.funds[0] + " " + currentDecision.funds[1]);
+                                } else if ("happiness".equals(elementName)) {
+                                    String[] valuesStr = parser.nextText().split(",");
+                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
+                                    currentDecision.happiness = values;
+                                } else if ("environment".equals(elementName)) {
+                                    String[] valuesStr = parser.nextText().split(",");
+                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
+                                    currentDecision.environment = values;
+                                } else if ("energy".equals(elementName)) {
+                                    String[] valuesStr = parser.nextText().split(",");
+                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
+                                    currentDecision.energy = values;
                                 }
                             }
                         }

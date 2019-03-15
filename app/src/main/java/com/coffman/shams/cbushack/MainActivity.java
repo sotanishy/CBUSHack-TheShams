@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void nextSituation() {
-
         //election fudgery
         if(game.getTime()%48==0) {
             game.changeTime(-1);
@@ -156,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
             energyValue.setText("" + game.getEnergy());
 
             fundsBar.setProgress(game.getFunds());
-            happinessBar.setProgress(game.getFunds());
-            environmentBar.setProgress(game.getFunds());
-            energyBar.setProgress(game.getFunds());
+            happinessBar.setProgress(game.getHappiness());
+            environmentBar.setProgress(game.getEnvironment());
+            energyBar.setProgress(game.getEnergy());
 
             dateText.setText(game.getTime() + " Months");
         }

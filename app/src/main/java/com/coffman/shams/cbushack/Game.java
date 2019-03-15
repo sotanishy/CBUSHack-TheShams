@@ -35,18 +35,26 @@ public class Game {
 
     public void changeFunds(int delta) {
         funds += delta;
+        if (funds < 0) funds = 0;
+        if (funds > 100) funds = 100;
     }
 
     public void changeHappiness(int delta) {
         happiness += delta;
+        if (happiness < 0) happiness = 0;
+        if (happiness > 100) happiness = 100;
     }
 
     public void changeEnvironment(int delta) {
         environment += delta;
+        if (environment < 0) environment = 0;
+        if (environment > 100) environment = 100;
     }
 
     public void changeEnergy(int delta) {
         energy += delta;
+        if (energy < 0) energy = 0;
+        if (energy > 100) energy = 100;
     }
 
     public void changeTime(int delta) {
