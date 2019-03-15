@@ -127,15 +127,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void nextSituation() {
         //election fudgery
-        if(game.getTime()%48==0) {
+        if(game.getTime() != 0 && game.getTime()%48==0) {
             game.changeTime(-1);
             if(game.getHappiness()<20)
                 topText.setText("Unfortunately, you have been voted out of office due to your unpopularity. Game over.");
             else
             {
-                topText.setText("Congratulations! You've been elected ");
-                overlayText.setText(situation.getOverlayText());
-                cardImage.setImageDrawable(getResources().getDrawable(situation.getDrawableId()));
+                if(game.getTime()%96==0) {
+                    int x;
+                    switch (x = game.nextPos()) {
+                        case 1: topText.setText("Congratulations! You've been elected as governor.");
+                        break;
+                        case 2: topText.setText("Congratulations! You've been elected as president.");
+                            break;
+                        case 3: topText.setText("Congratulations! You've been elected as LHL>JN#Q<>!??!");
+                            break;
+                    }
+                }
             }
         }
         else {
