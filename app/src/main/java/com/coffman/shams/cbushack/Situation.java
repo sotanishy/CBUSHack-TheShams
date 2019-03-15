@@ -11,6 +11,7 @@ import java.util.LinkedList;
 public class Situation {
     private String description, overlayText;
     private int drawableId;
+    private String position;
     private Decision left, right;
 
     private Situation() {
@@ -72,6 +73,8 @@ public class Situation {
                                 currentSituation.overlayText = parser.nextText();
                             } else if ("drawable".equals(elementName)) {
                                 currentSituation.drawableId = resources.getIdentifier(parser.nextText(), "drawable", "com.coffman.shams.cbushack");
+                            } else if ("pos".equals(elementName)) {
+                                currentSituation.position = parser.nextText();
                             } else if ("decision".equals(elementName)) {
                                 parser.next();
                                 currentDecision = new Decision(parser.nextText());
