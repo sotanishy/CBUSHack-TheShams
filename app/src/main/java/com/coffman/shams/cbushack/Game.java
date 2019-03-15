@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class Game {
-    private int funds, happiness, environment, energy, time;
+    private int funds, happiness, environment, energy, time, pos;
     private Situation currentSituation;
     private LinkedList<Situation> situationQueue;
 
@@ -18,6 +18,10 @@ public class Game {
 
     public Situation getNextSituation() {
         try {
+            //trying to get position-specific situations
+            //switch(situationQueue.peek()) {
+
+           //}
             return currentSituation = situationQueue.pop();
         } catch (NoSuchElementException e) {
             return currentSituation = new Situation(
@@ -37,6 +41,12 @@ public class Game {
         funds += delta;
         if (funds < 0) funds = 0;
         if (funds > 100) funds = 100;
+    }
+
+    public int nextPos()
+    {
+        pos++;
+        return pos;
     }
 
     public void changeHappiness(int delta) {
@@ -60,6 +70,8 @@ public class Game {
     public void changeTime(int delta) {
         time += delta;
     }
+
+    public int getPos( )    {return pos;}
 
     public int getFunds() {
         return funds;
