@@ -1,6 +1,5 @@
 package com.coffman.shams.cbushack;
 
-import android.util.Log;
 import java.util.Random;
 
 public class Decision {
