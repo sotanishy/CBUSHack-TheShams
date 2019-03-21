@@ -3,8 +3,8 @@ package com.coffman.shams.cbushack;
 import java.util.Random;
 
 public class Decision {
-    private String description;
 
+    private String description;
     public int[] funds, happiness, environment, energy;
 
     public Decision(String description) {
@@ -28,12 +28,5 @@ public class Decision {
         int min = Math.min(range[0], range[1]);
         int max = Math.max(range[0], range[1]);
         return new Random().nextInt(max - min + 1) + min;
-    }
-
-    @Override
-    public String toString() {
-        return "Decision{" +
-                "description='" + description + '\'' +
-                '}';
     }
 }
