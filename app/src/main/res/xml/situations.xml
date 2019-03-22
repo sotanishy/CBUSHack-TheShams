@@ -68,45 +68,6 @@
         </decision>
     </situation>
     <situation>
-        <header>Repeal the Clean Air Act</header>
-        <drawable>@drawable/man</drawable>
-        <pos>p</pos>
-        <decision>
-            <description>Yes</description>
-            <funds>5,15</funds>
-            <happiness>-15,0</happiness>
-            <environment>-70,-20</environment>
-            <energy>5,15</energy>
-        </decision>
-        <decision>
-            <description>No</description>
-            <funds>-5,5</funds>
-            <happiness>5,10</happiness>
-            <environment>20,30</environment>
-            <energy>-5,5</energy>
-        </decision>
-    </situation>
-    <situation>
-        <header>Incentivize the construction of wind turbines</header>
-        <drawable>@drawable/man</drawable>
-        <pos>g</pos>
-        <decision>
-            <description>Yes</description>
-            <funds>-10,-5</funds>
-            <happiness>-5,5</happiness>
-            <environment>5,10</environment>
-            <energy>0,20</energy>
-        </decision>
-        <decision>
-            <description>No</description>
-            <funds>5,10</funds>
-            <happiness>-10,10</happiness>
-            <environment>-5,-10</environment>
-            <energy>-5,5</energy>
-        </decision>
-    </situation>
-
-    <situation>
         <header>Install free charging stations for electric cars</header>
         <drawable>@drawable/man</drawable>
         <pos>m</pos>
@@ -145,6 +106,118 @@
         </decision>
     </situation>
 
-
-
+    <situation>
+        <header>Ban microplastics in cosmetic products</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-10,-5</funds>
+            <happiness>-10,0</happiness>
+            <environment>10,15</environment>
+            <energy>-5,5</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,10</funds>
+            <happiness>-5,5</happiness>
+            <environment>-5,-20</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Install a new park</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-15,-5</funds>
+            <happiness>0,15</happiness>
+            <environment>5,15</environment>
+            <energy>-10,5</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,10</funds>
+            <happiness>-10,0</happiness>
+            <environment>-5,-10</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Begin PSAs regarding the dangers of coal to the environment</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-20,-15</funds>
+            <happiness>-5,15</happiness>
+            <environment>10,25</environment>
+            <energy>-10,10</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,15</funds>
+            <happiness>-10,5</happiness>
+            <environment>-5,-10</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Offer free health clinics</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-20,-15</funds>
+            <happiness>0,15</happiness>
+            <environment>-5,5</environment>
+            <energy>-10,10</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,15</funds>
+            <happiness>-10,0</happiness>
+            <environment>-5,5</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>End cardboard recycling</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>5,10</funds>
+            <happiness>-15, 0</happiness>
+            <environment>-10,5</environment>
+            <energy>0,10</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>-5,-10</funds>
+            <happiness>0,5</happiness>
+            <environment>10,15</environment>
+            <energy>-5,5</energy>
+        </decision>
+    </situation>
+    <situation>
+        <header>Offer more housing for the homeless</header>
+        <drawable>@drawable/man</drawable>
+        <pos>m</pos>
+        <decision>
+            <description>Yes</description>
+            <funds>-15,-5</funds>
+            <happiness>10,20</happiness>
+            <environment>-10,5</environment>
+            <energy>-10,5</energy>
+        </decision>
+        <decision>
+            <description>No</description>
+            <funds>5,15</funds>
+            <happiness>-10,5</happiness>
+            <environment>-5,10</environment>
+            <energy>-5,10</energy>
+        </decision>
+    </situation>
 </situations>
