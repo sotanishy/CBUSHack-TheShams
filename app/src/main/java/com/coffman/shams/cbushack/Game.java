@@ -6,7 +6,9 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class Game {
-    private int funds, happiness, environment, energy, time, pos;
+    private boolean gameOver = false;
+    private int funds, happiness, environment, energy, time;
+
     private Situation currentSituation;
     private LinkedList<Situation> situationQueue;
 
@@ -17,6 +19,7 @@ public class Game {
     }
 
     public Situation getNextSituation() {
+        if (gameOver) return currentSituation;
         try {
             //trying to get position-specific situations
             //switch(situationQueue.peek()) {
@@ -29,7 +32,8 @@ public class Game {
                     "",
                     R.drawable.boy,
                     new Decision("Ok"),
-                    new Decision("Ok"));
+                    new Decision("Ok")
+            );
         }
     }
 
@@ -37,41 +41,57 @@ public class Game {
         return currentSituation;
     }
 
-    public void changeFunds(int delta) {
-        funds += delta;
-        if (funds < 0) funds = 0;
-        if (funds > 100) funds = 100;
+    public void endGame(String s) {
+        String description = "Your " + s + " level fell below zero. You got impeached! Game Over!";
+        currentSituation = new Situation(
+                description,
+                "",
+                R.drawable.boy,
+                new Decision("Ok"),
+                new Decision("Ok")
+        );
+        gameOver = true;
     }
 
-    public int nextPos()
-    {
-        pos++;
-        return pos;
+    public void changeFunds(int delta) {
+        funds += delta;
+        if (funds < 0) {
+            funds = 0;
+            endGame("funds");
+        }
+        if (funds > 100) funds = 100;
     }
 
     public void changeHappiness(int delta) {
         happiness += delta;
-        if (happiness < 0) happiness = 0;
+        if (happiness < 0) {
+            happiness = 0;
+            endGame("happiness");
+        }
         if (happiness > 100) happiness = 100;
     }
 
     public void changeEnvironment(int delta) {
         environment += delta;
-        if (environment < 0) environment = 0;
+        if (environment < 0) {
+            environment = 0;
+            endGame("environment");
+        }
         if (environment > 100) environment = 100;
     }
 
     public void changeEnergy(int delta) {
         energy += delta;
-        if (energy < 0) energy = 0;
+        if (energy < 0) {
+            energy = 0;
+            endGame("energy");
+        }
         if (energy > 100) energy = 100;
     }
 
     public void changeTime(int delta) {
         time += delta;
     }
-
-    public int getPos( )    {return pos;}
 
     public int getFunds() {
         return funds;
@@ -92,4 +112,5 @@ public class Game {
     public int getTime() {
         return time;
     }
+
 }

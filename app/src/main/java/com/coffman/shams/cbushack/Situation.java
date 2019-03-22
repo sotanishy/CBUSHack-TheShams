@@ -4,14 +4,14 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 
-import org.xmlpull.v1.XmlPullParser;
-
 import java.util.LinkedList;
 
+import org.xmlpull.v1.XmlPullParser;
+
 public class Situation {
+
     private String description, overlayText;
     private int drawableId;
-    private String position;
     private Decision left, right;
 
     private Situation() {
@@ -73,8 +73,6 @@ public class Situation {
                                 currentSituation.overlayText = parser.nextText();
                             } else if ("drawable".equals(elementName)) {
                                 currentSituation.drawableId = resources.getIdentifier(parser.nextText(), "drawable", "com.coffman.shams.cbushack");
-                            } else if ("pos".equals(elementName)) {
-                                currentSituation.position = parser.nextText();
                             } else if ("decision".equals(elementName)) {
                                 parser.next();
                                 currentDecision = new Decision(parser.nextText());
@@ -117,16 +115,5 @@ public class Situation {
         }
 
         return null;
-    }
-
-    @Override
-    public String toString() {
-        return "Situation{" +
-                "description='" + description + '\'' +
-                ", overlayText='" + overlayText + '\'' +
-                ", drawableId=" + drawableId +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
     }
 }
