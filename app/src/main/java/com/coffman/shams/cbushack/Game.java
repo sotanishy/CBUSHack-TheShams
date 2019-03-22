@@ -9,6 +9,7 @@ public class Game {
 
     private boolean gameOver = false;
     private int funds, happiness, environment, energy, time;
+
     private Situation currentSituation;
     private LinkedList<Situation> situationQueue;
 
@@ -19,20 +20,21 @@ public class Game {
     }
 
     public Situation getNextSituation() {
-        if (gameOver) {
-            return currentSituation;
-        } else {
-            try {
-                return currentSituation = situationQueue.pop();
-            } catch (NoSuchElementException e) {
-                return currentSituation = new Situation(
-                        "You have reached the end of the game. Congrats!!! There is more to come soon...",
-                        "",
-                        R.drawable.boy,
-                        new Decision("Ok"),
-                        new Decision("Ok")
-                );
-            }
+        if (gameOver) return currentSituation;
+        try {
+            //trying to get position-specific situations
+            //switch(situationQueue.peek()) {
+
+           //}
+            return currentSituation = situationQueue.pop();
+        } catch (NoSuchElementException e) {
+            return currentSituation = new Situation(
+                    "You have reached the end of the game. Congrats!!! There is more to come soon...",
+                    "",
+                    R.drawable.boy,
+                    new Decision("Ok"),
+                    new Decision("Ok")
+            );
         }
     }
 
