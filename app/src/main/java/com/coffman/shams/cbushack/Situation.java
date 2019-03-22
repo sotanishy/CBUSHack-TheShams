@@ -2,7 +2,6 @@ package com.coffman.shams.cbushack;
 
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
-import android.util.Log;
 
 import java.util.LinkedList;
 
@@ -61,9 +60,6 @@ public class Situation {
                         elementName = parser.getName();
 
                         if ("situation".equals(elementName)) {
-                            if (currentSituation != null)
-                                Log.e("XML Parser", currentSituation.description);
-
                             currentSituation = new Situation();
                             situations.add(currentSituation);
                         } else if (currentSituation != null) {
@@ -83,23 +79,15 @@ public class Situation {
                                     currentSituation.right = currentDecision;
                                 }
                             } else if (currentDecision != null) {
+                                String[] valuesStr = parser.nextText().split(",");
                                 if ("funds".equals(elementName)) {
-                                    String[] valuesStr = parser.nextText().split(",");
-                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
-                                    currentDecision.funds = values;
-                                    Log.d("decision", currentDecision.getDescription() + " " + currentDecision.funds[0] + " " + currentDecision.funds[1]);
+                                    currentDecision.funds = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
                                 } else if ("happiness".equals(elementName)) {
-                                    String[] valuesStr = parser.nextText().split(",");
-                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
-                                    currentDecision.happiness = values;
+                                    currentDecision.happiness = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
                                 } else if ("environment".equals(elementName)) {
-                                    String[] valuesStr = parser.nextText().split(",");
-                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
-                                    currentDecision.environment = values;
+                                    currentDecision.environment = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
                                 } else if ("energy".equals(elementName)) {
-                                    String[] valuesStr = parser.nextText().split(",");
-                                    int[] values = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
-                                    currentDecision.energy = values;
+                                    currentDecision.energy = new int[] {Integer.parseInt(valuesStr[0]), Integer.parseInt(valuesStr[1])};
                                 }
                             }
                         }
