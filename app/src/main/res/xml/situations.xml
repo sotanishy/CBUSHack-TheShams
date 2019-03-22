@@ -13,7 +13,6 @@
     <situation>
         <header>The citizens want to open a new school to ease the overcrowding</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-10,-5</funds>
@@ -32,7 +31,6 @@
     <situation>
         <header>A group of lobbyists strongly encourage the implementation of solar powers</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-15,-10</funds>
@@ -51,7 +49,6 @@
     <situation>
         <header>More vacations for government workers</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-10,-5</funds>
@@ -70,7 +67,6 @@
     <situation>
         <header>Install free charging stations for electric cars</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-20,-5</funds>
@@ -89,7 +85,6 @@
     <situation>
         <header>Increase wages for sanitation engineers</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-10,-5</funds>
@@ -109,7 +104,6 @@
     <situation>
         <header>Ban microplastics in cosmetic products</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-10,-5</funds>
@@ -128,7 +122,6 @@
     <situation>
         <header>Install a new park</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-15,-5</funds>
@@ -147,7 +140,6 @@
     <situation>
         <header>Begin PSAs regarding the dangers of coal to the environment</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-20,-15</funds>
@@ -166,7 +158,6 @@
     <situation>
         <header>Offer free health clinics</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-20,-15</funds>
@@ -185,11 +176,10 @@
     <situation>
         <header>End cardboard recycling</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>5,10</funds>
-            <happiness>-15, 0</happiness>
+            <happiness>-15,0</happiness>
             <environment>-10,5</environment>
             <energy>0,10</energy>
         </decision>
@@ -204,7 +194,6 @@
     <situation>
         <header>Offer more housing for the homeless</header>
         <drawable>@drawable/man</drawable>
-        <pos>m</pos>
         <decision>
             <description>Yes</description>
             <funds>-15,-5</funds>

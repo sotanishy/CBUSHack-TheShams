@@ -127,8 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void nextSituation() {
         Situation situation = game.getNextSituation();
-        if(game.getTime()%3!=0)
-            game.changeTime(1);
 
         // Update Card
         topText.setText(situation.getDescription());

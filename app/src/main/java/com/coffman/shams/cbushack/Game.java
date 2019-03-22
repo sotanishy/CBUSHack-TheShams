@@ -3,7 +3,6 @@ package com.coffman.shams.cbushack;
 import android.content.res.Resources;
 
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 
 public class Game {
 
@@ -20,22 +19,20 @@ public class Game {
     }
 
     public Situation getNextSituation() {
-        if (gameOver) return currentSituation;
-        try {
-            //trying to get position-specific situations
-            //switch(situationQueue.peek()) {
-
-           //}
-            return currentSituation = situationQueue.pop();
-        } catch (NoSuchElementException e) {
-            return currentSituation = new Situation(
-                    "You have reached the end of the game. Congrats!!! There is more to come soon...",
-                    "",
-                    R.drawable.boy,
-                    new Decision("Ok"),
-                    new Decision("Ok")
-            );
+        if (!gameOver) {
+            if (situationQueue.size() > 0) {
+                currentSituation = situationQueue.pop();
+            } else {
+                currentSituation = new Situation(
+                        "You have reached the end of the game. Congrats!!!",
+                        "",
+                        R.drawable.boy,
+                        new Decision("Ok"),
+                        new Decision("Ok")
+                );
+            }
         }
+        return currentSituation;
     }
 
     public Situation getCurrentSituation() {
@@ -43,9 +40,8 @@ public class Game {
     }
 
     public void endGame(String s) {
-        String description = "Your " + s + " level fell below zero. You got impeached! Game Over!";
         currentSituation = new Situation(
-                description,
+                "Your " + s + " level fell below zero. You got impeached! Game Over!",
                 "",
                 R.drawable.boy,
                 new Decision("Ok"),
